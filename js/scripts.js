@@ -59,7 +59,7 @@
 		var url_hash = location.hash;
 		var sectionElem = $(url_hash);
 		if(url_hash.indexOf('#section-') == 0 && sectionElem.length){
-			$('body, html').animate({scrollTop: $(url_hash).offset().top - 138}, 400);
+			$('body, html').animate({scrollTop: $(url_hash).offset().top - 68}, 400);
 		}
 
 		/*
@@ -110,6 +110,34 @@
 		}
 
 		/*
+			Testimonials Slider
+		*/
+		if($('.reviews-carousel').length){
+			var rev_slider = new Swiper ('.reviews-carousel .swiper-container', {
+				loop: true,
+				spaceBetween: 70,
+				slidesPerView: 2,
+				autoplay: {
+					delay: 6000
+				},
+				navigation: {
+					nextEl: '.reviews-carousel .swiper-button-next',
+					prevEl: '.reviews-carousel .swiper-button-prev',
+				},
+				breakpoints: {
+					720: {
+						slidesPerView: 1,
+						spaceBetween: 40,
+					},
+					1200: {
+						slidesPerView: 2,
+						spaceBetween: 70,
+					},
+				}
+			});
+		}
+
+		/*
 			Refresh Scroll
 		*/
 		function scroll_refresh(){
@@ -138,6 +166,7 @@
 	/*
 		Grained
 	*/
+	if(!$('.grained-off').length){
 	var grained_options = {
 		'animate': true,
 		'patternWidth': 400,
@@ -148,6 +177,7 @@
 		'grainHeight': 1
 	}
 	grained('#grained_container', grained_options);
+	}
 	
 	/*
 		Cursor Effects
@@ -232,7 +262,7 @@
 				location.href = '/'+link;
 			}
 
-			$('body, html').animate({scrollTop: $(link).offset().top - 138}, 400);
+			$('body, html').animate({scrollTop: $(link).offset().top - 68}, 400);
 			if($('header').hasClass('active')){
 				$('.menu-btn').trigger('click');
 			}
@@ -485,7 +515,7 @@
 					var currLink = $(this);
 					var refElement = $(currLink.attr("href"));
 					if(refElement.length){
-						if (refElement.offset().top <= scrollPos + 140) {
+						if (refElement.offset().top <= scrollPos + 70) {
 							$('.top-menu ul li').removeClass("current-menu-item");
 							currLink.closest('li').addClass("current-menu-item");
 						}
@@ -587,5 +617,98 @@
 			});
 		}
 	});
+
+	/*
+		Google Maps
+	*/
+	if($('#map').length) {
+		initMap();
+	}
 	
 } )( jQuery );
+
+/*
+	Google Map Options
+*/
+function initMap() {
+	var myLatlng = new google.maps.LatLng(48.859003, 2.345275); // <- Your latitude and longitude
+	var styles = [
+		{
+			"stylers": [
+				{
+					"hue": "#ff1a00"
+				},
+				{
+					"invert_lightness": true
+				},
+				{
+					"saturation": -100
+				},
+				{
+					"lightness": 33
+				},
+				{
+					"gamma": 0.5
+				}
+			]
+		},
+		{
+			"featureType": "water",
+			"elementType": "geometry",
+			"stylers": [
+				{
+					"color": "#2D333C"
+				}
+			]
+		},
+		{
+			"elementType": "labels",
+			"stylers": [
+				{
+					"visibility": "off"
+				}
+	    	]
+	  	},
+		{
+			"elementType": "labels.icon",
+			"stylers": [
+				{
+					"visibility": "off"
+				}
+			]
+		},
+		{
+			"featureType": "administrative.land_parcel",
+			"stylers": [
+				{
+					"visibility": "off"
+				}
+			]
+		},
+		{
+			"featureType": "administrative.neighborhood",
+			"stylers": [
+				{
+					"visibility": "off"
+				}
+			]
+		},
+	]
+
+	var mapOptions = {
+		zoom: 16,
+		center: myLatlng,
+		mapTypeControl: false,
+		disableDefaultUI: true,
+		zoomControl: false,
+		scrollwheel: false,
+		styles: styles
+	}
+	
+	var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+	/*var marker = new google.maps.Marker({
+		position: myLatlng,
+		map: map,
+		title: 'We are here!'
+	});*/
+}

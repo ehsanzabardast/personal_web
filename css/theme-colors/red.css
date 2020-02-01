@@ -4,64 +4,64 @@
 */
 
 /* TABLE OF CONTENTS
-	- Theme Blue
+	- Theme Red
 */
 
-/* - Theme Blue */
+/* - Theme Red */
 .cursor-follower {
-	background: #ee534f;
+	background: #FA292A;
 }
 
 a:hover {
-	color: #ee534f;
+	color: #FA292A;
 }
 
 .ink {
-	background: #ee534f;
+	background: #FA292A;
 }
 
 a.btn,
 .btn,
 .single-post-text input[type="submit"] {
-	color: #ee534f;
-	border-color: #ee534f;
+	color: #FA292A;
+	border-color: #FA292A;
 }
 
 button:hover {
-	border-bottom-color: #ee534f;
+	border-bottom-color: #FA292A;
 }
 
 .section.started .started-content .h-title strong {
-	color: #ee534f;
+	color: #FA292A;
 }
 
 .section.started .started-content .h-subtitle strong,
 .section.started .started-content .typed-subtitle strong {
-	color: #ee534f;
+	color: #FA292A;
 }
 
 .section.started .mouse_btn {
-	color: #ee534f;
+	color: #FA292A;
 }
 
 .info-list ul li strong {
-	color: #ee534f;
+	color: #FA292A;
 }
 
 .resume-items .resume-item.active .date {
-	color: #ee534f;
+	color: #FA292A;
 }
 
 .skills ul li .progress .percentage {
-	background: #ee534f;
+	background: #FA292A;
 }
 
 .skills.list ul li .name:before {
-	color: #ee534f;
+	color: #FA292A;
 }
 
 .skills.dotted ul li .progress .da span {
-	background: #ee534f;
+	background: #FA292A;
 }
 
 .skills.circles .progress .bar, 
@@ -115,51 +115,59 @@ button:hover {
 .skills.circles .progress.p98 .fill, 
 .skills.circles .progress.p99 .fill, 
 .skills.circles .progress.p100 .fill {
-	border-color: #ee534f;
+	border-color: #FA292A;
 }
 
 .service-items .service-item .icon {
-	color: #ee534f;
+	color: #FA292A;
 }
 
 .section.works .filters label.glitch-effect {
-	color: #ee534f;
+	color: #FA292A;
 }
 
 .started-content .date {
-	color: #ee534f;
-	border-color: #ee534f;
+	color: #FA292A;
+	border-color: #FA292A;
 }
 
 .single-post-text p a,
 .comment-text p a {
-	color: #ee534f;
+	color: #FA292A;
 }
 
 blockquote {
-	border-left-color: #ee534f;
+	border-left-color: #FA292A;
 }
 
 .single-post-text ul > li:before,
 .comment-text ul > li:before {
-	background: #ee534f;
+	background: #FA292A;
 }
 
 .post-text-bottom span.cat-links a {
-	color: #ee534f;
+	color: #FA292A;
 }
 
 .post-text-bottom .tags-links a,
 .post-text-bottom .tags-links span {
-	color: #ee534f;
-	border-color: #ee534f;
+	color: #FA292A;
+	border-color: #FA292A;
 }
 
 .content-sidebar .widget ul li a:hover {
-	color: #ee534f;
+	color: #FA292A;
 }
 
 .content-sidebar .tagcloud a {
-	color: #ee534f;
-	border-color: #ee534f;
+	color: #FA292A;
+	border-color: #FA292A;
+}
+
+.pricing-item .icon {
+	color: #FA292A;
+}
+
+.pricing-item .feature-list ul li strong {
+	background: #FA292A;
 }

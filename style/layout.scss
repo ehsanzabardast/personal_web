@@ -2,6 +2,7 @@
 
 /**
 *	Cvio - Resume/CV Template (HTML)
+*	Version: 1.1
 *	Author: beshleyua
 *	Author URL: http://themeforest.net/user/beshleyua
 *	Copyright © Cvio by beshleyua. All Rights Reserved.
@@ -420,19 +421,6 @@
 	}
 	.content {
 		position: relative;
-		.title {
-			position: relative;
-			margin: 0 0 35px 35px;
-			.title_inner {
-				display: inline-block;
-				vertical-align: top;
-				position: relative;
-				font-size: $large_size;
-				color: $white_color;
-				font-weight: 600;
-				@include transition(all 0.3s ease 0s);
-			}
-		}
 		.portfolio-cols .title {
 			margin-left: 0;
 		}
@@ -443,6 +431,22 @@
 		font-size: $default_size;
 		background: $default_bg;
 		border: 1px solid $lines_color;
+		.single-post-text > *:first-child {
+			margin-top: 0;
+		}
+	}
+	.title {
+		position: relative;
+		margin: 0 0 35px 35px;
+		.title_inner {
+			display: inline-block;
+			vertical-align: top;
+			position: relative;
+			font-size: $large_size;
+			color: $white_color;
+			font-weight: 600;
+			@include transition(all 0.3s ease 0s);
+		}
 	}
 }
 
@@ -462,7 +466,7 @@
 		padding-left: 30px;
 		padding-right: 30px;
 	}
-	.section .content .title {
+	.section .title {
 		margin: 0 0 30px 0;
 	}
 }
@@ -472,6 +476,7 @@
 	margin: 0;
 	padding: 0;
 	position: relative;
+	overflow: hidden;
 	height: 100vh;
 	z-index: 11;
 	&.personal {
@@ -494,7 +499,7 @@
 		.h-title {
 			margin: 0;
 			position: absolute;
-			left: 20%;
+			left: calc(20% + 35px);
 			bottom: 50px;
 			max-width: 560px;
 			font-size: 20px;
@@ -669,7 +674,7 @@
 	}
 	.swiper-nav {
 		position: absolute;
-		left: 20%;
+		left: calc(20% + 35px);
 		bottom: 120px;
 		width: 66px;
 		height: 24px;
@@ -688,9 +693,9 @@
 	}
 }
 
-.section.started + .section.started,
+.section.started + .section,
 .section.started.layout-creative + .section {
-	margin-top: 0;
+	margin-top: 70px;
 }
 
 .section.started.section-title .started-content .typed-bread,
@@ -764,6 +769,12 @@
 	}
 }
 
+.section.started .mouse_btn {
+	left: auto;
+	right: calc(20% + 35px);
+	margin-left: 0;
+}
+
 /* section started tablet */
 @media (max-width: 1199px) {
 	.section.started.layout-creative, .section.started.layout-post-creative {
@@ -788,7 +799,7 @@
 	.section.started.section-title .started-content .typed-subtitle,
 	.section.started.section-title .started-content .typed-bread {
 		padding-left: 0;
-		left: 0;
+		left: 50px;
 	}
 	.section.started.personal .started-content .typed-subtitle,
 	.section.started.personal .started-content .typed-bread {
@@ -816,6 +827,11 @@
 	.section.started.layout-creative .started-content .typed-cursor {
 		margin-left: 0;
 	}
+	.section.started .mouse_btn {
+		left: auto;
+		right: 120px;
+		margin-left: 0;
+	}
 }
 
 /* section started mobile */
@@ -825,6 +841,7 @@
 	}
 	.section.started.layout-creative, 
 	.section.started.layout-post-creative {
+		padding-top: 50vw;
 		padding-left: 30px;
 		padding-right: 30px;
 		padding-bottom: 30px;
@@ -883,6 +900,20 @@
 	}
 	.section.started .swiper-nav {
 		left: 30px;
+	}
+	.section.started .mouse_btn {
+		right: 50%;
+		margin-left: 0;
+		margin-right: -10px;
+		bottom: 150px;
+	}
+	.section.started.section-title .started-content .h-subtitle,
+	.section.started.section-title .started-content .typed-subtitle,
+	.section.started.section-title .started-content .typed-bread {
+		left: 0;
+	}
+	.section.started + .section, .section.started.layout-creative + .section {
+		margin-top: 0;
 	}
 }
 
@@ -2107,12 +2138,13 @@
 					position: absolute;
 					top: 20px;
 					right: 20px;
-					color: $white_color;
+					color: $default_bg;
 					font-size: 18px;
 					display: inline-block;
 					font-weight: normal;
 					opacity: 0;
-					@include transition(opacity 0.7s cubic-bezier(0.165, 0.85, 0.45, 1) 0s);
+					@include transform(translateY(-15px));
+					@include transition(all 0.7s cubic-bezier(0.165, 0.85, 0.45, 1) 0s);
 				}
 			}
 			.desc {
@@ -2126,17 +2158,15 @@
 					display: block;
 					font-size: $large_size;
 					font-weight: 600;
-					color: $white_color;
+					color: $default_bg;
 					word-wrap: break-word;
 				}
 			}
-			.ink {
-				opacity: 0.9;
-			}
 			&:hover {
 				.icon {
-					opacity: 1;
-					@include transition(opacity 0.7s cubic-bezier(0.165, 0.85, 0.45, 1) 0.35s);
+					opacity: 0.6;
+					@include transform(translateY(0px));
+					@include transition(all 0.7s cubic-bezier(0.165, 0.85, 0.45, 1) 0.35s);
 				}
 				.desc {
 					top: 0;
@@ -2149,8 +2179,9 @@
 		.category {
 			margin: 0;
 			display: block;
-			font-size: $default_size;
-			color: $white_color;
+			font-size: $small_size;
+			color: $default_bg;
+			opacity: 0.6;
 		}
 	}
 }
@@ -2251,6 +2282,272 @@
 			font-size: $default_size;
 			color: $light_color;
 		}
+	}
+}
+
+.map {
+	position: absolute;
+	left: 0;
+	top: -5vh;
+	width: 100vw;
+	height: 110vh;
+}
+
+/* - Pricing */
+.pricing-items {
+	margin: 0 -35px;
+	font-size: 0;
+	.pricing-col {
+		padding: 0 35px;
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+	}
+}
+
+.pricing-item {
+	position: relative;
+	text-align: center;
+	.icon {
+		font-size: 36px;
+		line-height: normal;
+		color: $active_color;
+	}
+	.name {
+		margin: 15px 0;
+		color: $light_color;
+		font-weight: 500;
+	}
+	.amount {
+		margin: 30px 0;
+		.number {
+			margin: 0;
+			position: relative;
+			display: inline-block;
+			vertical-align: middle;
+			font-size: $large_size * 2;
+			line-height: $large_size;
+			font-weight: 600;
+			color: $light_color;
+			.dollar,
+			.period {
+				position: absolute;
+				left: -15px;
+				top: -5px;
+				display: inline-block;
+				vertical-align: top;
+				font-size: $small_size;
+				line-height: $small_size;
+				color: $extra_color;
+				font-weight: 400;
+			}
+			.period {
+				left: auto;
+				right: -55px;
+				top: auto;
+				bottom: -5px;
+				width: 50px;
+				text-align: left;
+				white-space: nowrap;
+			}
+		}
+	}
+	.feature-list {
+		margin-bottom: 30px;
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			li {
+				margin: 10px 0;
+				&:last-child {
+					margin-bottom: 0;
+					border-bottom: none;
+				}
+				&.disable {
+					text-decoration: line-through;
+					opacity: 0.5;
+				}
+				strong {
+					margin: 0 0 0 5px;
+					padding: 0 5px;
+					display: inline-block;
+					vertical-align: middle;
+					font-size: $extra_small_size;
+					color: $default_bg;
+					background: $active_color;
+					font-weight: 300;
+					@include border-radius(2px);
+				}
+			}
+		}
+	}
+}
+
+/* section pricing tablet */
+@media (max-width: 1199px) {
+	
+}
+
+/* section pricing mobile */
+@media (max-width: 720px) {
+	.pricing-items {
+		.pricing-col {
+			margin-bottom: 40px;
+			width: 100%;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+/* - Team */
+.team-items {
+	margin: 0 -35px;
+	font-size: 0;
+	.team-col {
+		padding: 0 35px;
+		display: inline-block;
+		vertical-align: top;
+		width: 50%;
+	}
+}
+
+.team-item {
+	position: relative;
+	text-align: center;
+	.image {
+		font-size: 0;
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+	.name {
+		margin: 30px 0 5px 0;
+		color: $light_color;
+		font-weight: 500;
+	}
+	.category {
+		margin: 0 0 5px 0;
+		position: relative;
+		display: inline-block;
+		color: $extra_color;
+	}
+	.soc {
+		a {
+			margin: 0 5px;
+			display: inline-block;
+			vertical-align: top;
+			text-align: center;
+			color: $default_color;
+			@include transition(all 0.7s cubic-bezier(0.165, 0.85, 0.45, 1));
+			.icon {
+				font-size: $small_size;
+				color: $default_color;
+			}
+			&:hover {
+				color: $white_color;
+				opacity: 1;
+				.icon {
+					color: $white_color;
+				}
+			}
+		}
+	}
+}
+
+/* section team tablet */
+@media (max-width: 1199px) {
+	
+}
+
+/* section team mobile */
+@media (max-width: 720px) {
+	.team-items .team-col {
+		margin-bottom: 40px;
+		width: 100%;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/* - Testimonials */
+.reviews-carousel {
+	position: relative;
+	width: calc(100% + 1px);
+	.content-box {
+		margin-right: 0;
+	}
+	.swiper-nav {
+		position: absolute;
+		left: auto;
+		right: 35px;
+		top: -58px;
+		height: 24px;
+		z-index: 3;
+		.swiper-button-prev, 
+		.swiper-button-next {
+			margin-left: 15px;
+			margin-top: 0;
+			position: relative;
+			top: 0;
+			left: 0;
+			right: auto;
+			width: 20px;
+			height: 20px;
+			background: none;
+			font-size: 22px;
+			color: #FFF;
+			text-decoration: none;
+			@include transition(all 0.3s ease 0s);
+		}
+	}
+}
+
+.reviews-item {
+	position: relative;
+	.image {
+		float: left;
+		margin-bottom: 15px;
+		margin-right: 15px;
+		width: 70px;
+		font-size: 0;
+		img {
+			width: 100%;
+			height: auto;
+			@include border-radius(100%);
+		}
+	}
+	.info {
+		margin-top: 10px;
+		margin-left: 85px;
+	}
+	.name {
+		margin: 0 0 5px 0;
+		color: $light_color;
+		font-weight: 500;
+	}
+	.company {
+		font-size: $small_size;
+		color: $extra_color;
+	}
+	.text {
+		clear: both;
+	}
+}
+
+/* section testimonials tablet */
+@media (max-width: 1199px) {
+	
+}
+
+/* section testimonials mobile */
+@media (max-width: 720px) {
+	.reviews-carousel .swiper-nav {
+		right: 0;
 	}
 }
 
@@ -2708,9 +3005,6 @@ iframe, object {
 	}
 	.gallery.gallery-columns-9 .gallery-item {
 		width: 100%;
-	}
-	.section.started .mouse_btn {
-		bottom: 70px;
 	}
 	th {
 		border: 2px solid $white_color;
@@ -3392,6 +3686,14 @@ iframe, object {
 	width: 100%;
 	height: 100%;
 	z-index: 2;
+}
+
+.grained-off .video-bg-texture {
+	display: none;
+}
+
+.grained-on .video-bg-texture {
+	display: block;
 }
 
 .disable-default-mask:before {

@@ -1,5 +1,6 @@
 /**
 *	Cvio - Resume/CV Template (HTML)
+*	Version: 1.1
 *	Author: beshleyua
 *	Author URL: http://themeforest.net/user/beshleyua
 *	Copyright © Cvio by beshleyua. All Rights Reserved.
@@ -288,6 +289,14 @@ body.scroll_hidden {
 	margin: 0;
 }
 
+.lines-off .lines .line-col:before {
+	display: none;
+}
+
+.lines-on .lines .line-col:before {
+	display: block;
+}
+
 @media (max-width: 1199px) {
 	.lines .line-col {
 		width: 33.333%;
@@ -525,7 +534,7 @@ a.btn .lnk,
 
 a.btn:hover,
 .btn:hover {
-	color: #FFF;
+	color: #101010;
 }
 
 @media screen and (max-width: 720px) {
