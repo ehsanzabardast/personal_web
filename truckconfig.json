@@ -1,0 +1,9 @@
+{
+  "hiddenFiles": [
+    "*.svg",
+    "*.JPG",
+    "*.png",
+    "*.zip",
+    "*.ttf"
+  ]
+}
