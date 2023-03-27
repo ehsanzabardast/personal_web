@@ -2377,7 +2377,7 @@
 					color: $default_bg;
 					background: $active_color;
 					font-weight: 300;
-					@include border-radius(2px);
+					@include border-radius(0px);
 				}
 			}
 		}
@@ -2518,7 +2518,7 @@
 		img {
 			width: 100%;
 			height: auto;
-			@include border-radius(100%);
+			@include border-radius(0%);
 		}
 	}
 	.info {
